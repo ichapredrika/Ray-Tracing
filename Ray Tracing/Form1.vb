@@ -248,7 +248,26 @@
             Dim identifier As New Single
             identifier = norm.x + norm.y + norm.z
 
+            Dim temp As List(Of Point) = New List(Of Point)
+            Dim tempP As Point
             If identifier < 0 Then
+                tempP.X = vs(Poly.p1).x
+                tempP.Y = vs(Poly.p1).y
+                temp.Add(tempP)
+
+                tempP.X = vs(Poly.p2).x
+                tempP.Y = vs(Poly.p2).y
+                temp.Add(tempP)
+
+                tempP.X = vs(Poly.p3).x
+                tempP.Y = vs(Poly.p3).y
+                temp.Add(tempP)
+
+
+                'gr.DrawPolygon(pen, temp.ToArray)
+                Dim blueBrush As New SolidBrush(Color.Red)
+                gr.FillPolygon(blueBrush, temp.ToArray)
+
                 gr.DrawLine(pen, vs(Poly.p1).x, vs(Poly.p1).y, vs(Poly.p2).x, vs(Poly.p2).y)
                 gr.DrawLine(pen, vs(Poly.p2).x, vs(Poly.p2).y, vs(Poly.p3).x, vs(Poly.p3).y)
                 gr.DrawLine(pen, vs(Poly.p3).x, vs(Poly.p3).y, vs(Poly.p1).x, vs(Poly.p1).y)
@@ -282,7 +301,26 @@
             Dim identifier As New Single
             identifier = norm.x + norm.y + norm.z
 
+            Dim temp As List(Of Point) = New List(Of Point)
+            Dim tempP As Point
             If identifier < 0 Then
+                tempP.X = vs2(Poly.p1).x
+                tempP.Y = vs2(Poly.p1).y
+                temp.Add(tempP)
+
+                tempP.X = vs2(Poly.p2).x
+                tempP.Y = vs2(Poly.p2).y
+                temp.Add(tempP)
+
+                tempP.X = vs2(Poly.p3).x
+                tempP.Y = vs2(Poly.p3).y
+                temp.Add(tempP)
+
+
+                'gr.DrawPolygon(pen, temp.ToArray)
+                Dim blueBrush As New SolidBrush(Color.Red)
+                gr.FillPolygon(blueBrush, temp.ToArray)
+
                 gr.DrawLine(pen, vs2(Poly.p1).x, vs2(Poly.p1).y, vs2(Poly.p2).x, vs2(Poly.p2).y)
                 gr.DrawLine(pen, vs2(Poly.p2).x, vs2(Poly.p2).y, vs2(Poly.p3).x, vs2(Poly.p3).y)
                 gr.DrawLine(pen, vs2(Poly.p3).x, vs2(Poly.p3).y, vs2(Poly.p1).x, vs2(Poly.p1).y)
