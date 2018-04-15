@@ -3,30 +3,39 @@
     Public bmp As Bitmap
     Public gpx As Graphics
 
-    Dim Light As Vec
+    Public Light As Vec
+    Public Sphere As Sphere
+    Public tst As Double = 1.0
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bmp = New Bitmap(PictureBox1.Width, PictureBox1.Height)
         gpx = Graphics.FromImage(bmp)
 
-        Light = New Vec(bmp.Width / 2, 0, 50)
+        Light = New Vec(bmp.Width / 2, bmp.Height, 0)
+        Sphere = New Sphere(New Vec(bmp.Width / 2, bmp.Height / 2, 0), 50, Color.Red)
+
+        TrackBar1.SetRange(0, bmp.Width)
+        TrackBar1.Value = bmp.Width / 2
+
+        TrackBar2.SetRange(0, bmp.Height)
+        TrackBar1.Value = 0
 
         Draw(Light)
     End Sub
 
     Public Sub Draw(Light As Vec)
-        gpx.Clear(Color.Black)
-
-        Dim Sphere As Sphere = New Sphere(New Vec(bmp.Width / 2, bmp.Height / 2, 50), 50)
-        Dim clr As Color
-        clr = Color.White
+        gpx.Clear(Color.Azure)
 
         Dim i, j As Double
 
+        'for each pixel
         For i = 0 To bmp.Width - 1
             For j = 0 To bmp.Height - 1
+
+                'Send a ray through each pixel
                 Dim Ray As Ray = New Ray(New Vec(i, j, 0), New Vec(0, 0, 1))
 
-                Dim t As Double = Double.MaxValue
+                Dim t As Double
 
                 'check intersections
                 If Sphere.Intersect(Ray, t) Then
@@ -42,11 +51,11 @@
                     N = Sphere.getNormal(pi)
                     dt = Sphere.dot(L.Normalize, N.Normalize)
 
-                    Dim newclr As Color
+                    Dim newclr As Vec
 
-                    newclr = multiplicationCandD(clr, dt)
+                    newclr = (Sphere.Color + New Vec(255, 255, 255) * dt) * tst
 
-                    bmp.SetPixel(i, j, newclr)
+                    bmp.SetPixel(i, j, CreateColorVector(newclr))
 
                 End If
 
@@ -55,33 +64,25 @@
         PictureBox1.Image = bmp
     End Sub
 
-    Function sumColor(a As Color, b As Color) As Color
+    Function CreateColorVector(clr As Vec) As Color
         Dim colRed, colGreen, colBlue As Double
 
-        colRed = a.R + b.R
-        colGreen = a.G + b.G
-        colBlue = a.B + b.B
-
-        Return Color.FromArgb(CInt(colRed), CInt(colGreen), CInt(colBlue))
-    End Function
-
-    Function multiplicationCandD(a As Color, b As Double) As Color
-        Dim colRed, colGreen, colBlue As Double
-
-        colRed = a.R * b
-        colGreen = a.G * b
-        colBlue = a.B * b
+        colRed = clr.x
+        colGreen = clr.y
+        colBlue = clr.z
 
         If colRed > 255 Then
             colRed = 255
         ElseIf colRed < 0 Then
             colRed = 0
         End If
+
         If colGreen > 255 Then
             colGreen = 255
         ElseIf colGreen < 0 Then
             colGreen = 0
         End If
+
         If colBlue > 255 Then
             colBlue = 255
         ElseIf colBlue < 0 Then
@@ -105,15 +106,36 @@
         Light.Translate(TrackBar3.Value, "z")
         Draw(Light)
     End Sub
+
+    Private Sub TrackBar4_Scroll(sender As Object, e As EventArgs) Handles TrackBar4.Scroll
+        tst = TrackBar4.Value / 100
+        Draw(Light)
+    End Sub
+
+    Private Sub TrackBar7_Scroll(sender As Object, e As EventArgs) Handles TrackBar7.Scroll
+
+    End Sub
+
+    Private Sub TrackBar5_Scroll(sender As Object, e As EventArgs) Handles TrackBar5.Scroll
+        Sphere.c.Translate(TrackBar5.Value, "x")
+        Draw(Light)
+    End Sub
+
+    Private Sub TrackBar6_Scroll(sender As Object, e As EventArgs) Handles TrackBar6.Scroll
+        Sphere.c.Translate(TrackBar6.Value, "y")
+        Draw(Light)
+    End Sub
 End Class
 
 Public Class Sphere
     Public c As Vec 'center
     Public r As Double 'radius
+    Public Color As Vec ' init rgb=xyz
 
-    Sub New(c As Vec, r As Double)
+    Sub New(c As Vec, r As Double, Color As Color)
         Me.c = c
         Me.r = r
+        Me.Color = New Vec(Color.R, Color.G, Color.B)
     End Sub
 
     Public Function Intersect(ray As Ray, ByRef t As Double) As Boolean
