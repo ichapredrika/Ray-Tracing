@@ -14,11 +14,27 @@
         Light = New Vec(bmp.Width / 2, bmp.Height, 0)
         Sphere = New Sphere(New Vec(bmp.Width / 2, bmp.Height / 2, 0), 50, Color.Red)
 
-        TrackBar1.SetRange(0, bmp.Width)
-        TrackBar1.Value = bmp.Width / 2
+        Lightx.SetRange(0, bmp.Width)
+        Lightx.Value = bmp.Width / 2
 
-        TrackBar2.SetRange(0, bmp.Height)
-        TrackBar1.Value = 0
+        Lighty.SetRange(0, bmp.Height)
+        Lighty.Value = 0
+
+        Lightz.SetRange(-360, 360)
+        Lightz.Value = 0
+
+        Spherex.SetRange(0 + Sphere.r, bmp.Width - Sphere.r)
+        Spherex.Value = bmp.Width / 2
+
+        Spherey.SetRange(0 + Sphere.r, bmp.Height - Sphere.r)
+        Spherey.Value = bmp.Height / 2
+
+
+        'TrackBar1.SetRange(0, bmp.Width)
+        'TrackBar1.Value = bmp.Width / 2
+
+        'TrackBar2.SetRange(0, bmp.Height)
+        'TrackBar1.Value = 0
 
         Draw(Light)
     End Sub
@@ -27,15 +43,14 @@
         gpx.Clear(Color.Azure)
 
         Dim i, j As Double
+        Dim t As Double
 
         'for each pixel
-        For i = 0 To bmp.Width - 1
-            For j = 0 To bmp.Height - 1
+        For j = 0 To bmp.Height - 1
+            For i = 0 To bmp.Width - 1
 
                 'Send a ray through each pixel
                 Dim Ray As Ray = New Ray(New Vec(i, j, 0), New Vec(0, 0, 1))
-
-                Dim t As Double
 
                 'check intersections
                 If Sphere.Intersect(Ray, t) Then
@@ -43,19 +58,20 @@
 
                     Dim pi, L, N As Vec
                     Dim dt As Double
+
                     'Point of intersection
                     pi = Ray.o + Ray.d * t
 
                     'Color the Pixel
                     L = Light - pi
-                    N = Sphere.getNormal(pi)
-                    dt = Sphere.dot(L.Normalize, N.Normalize)
+                    N = Sphere.GetNormal(pi)
+                    dt = Sphere.Dot(L.Normalize, N.Normalize)
 
-                    Dim newclr As Vec
+                    Dim itot As Vec
 
-                    newclr = (Sphere.Color + New Vec(255, 255, 255) * dt) * tst
+                    itot = (Sphere.Color + New Vec(255, 255, 255) * dt) * tst
 
-                    bmp.SetPixel(i, j, CreateColorVector(newclr))
+                    bmp.SetPixel(i, j, CreateColorVector(itot))
 
                 End If
 
@@ -92,18 +108,29 @@
         Return Color.FromArgb(CInt(colRed), CInt(colGreen), CInt(colBlue))
     End Function
 
-    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles TrackBar1.Scroll
-        Light.Translate(TrackBar1.Value, "x")
+    Function MatrixMultiplication(Matrix1(,) As Double, Matrix2(,) As Double) As Double(,)
+        Dim temp(3, 3) As Double
+        For i = 0 To 3
+            temp(i, 0) = Matrix1(i, 0) * Matrix2(0, 0) + Matrix1(i, 1) * Matrix2(1, 0) + Matrix1(i, 2) * Matrix2(2, 0) + Matrix1(i, 3) * Matrix2(3, 0)
+            temp(i, 1) = Matrix1(i, 0) * Matrix2(0, 1) + Matrix1(i, 1) * Matrix2(1, 1) + Matrix1(i, 2) * Matrix2(2, 1) + Matrix1(i, 3) * Matrix2(3, 1)
+            temp(i, 2) = Matrix1(i, 0) * Matrix2(0, 2) + Matrix1(i, 1) * Matrix2(1, 2) + Matrix1(i, 2) * Matrix2(2, 2) + Matrix1(i, 3) * Matrix2(3, 2)
+            temp(i, 3) = Matrix1(i, 0) * Matrix2(0, 3) + Matrix1(i, 1) * Matrix2(1, 3) + Matrix1(i, 2) * Matrix2(2, 3) + Matrix1(i, 3) * Matrix2(3, 3)
+        Next
+        Return temp
+    End Function
+
+    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles Lightx.Scroll
+        Light.Translate(bmp.Width - Lightx.Value, "x")
         Draw(Light)
     End Sub
 
-    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs) Handles TrackBar2.Scroll
-        Light.Translate(TrackBar2.Value, "y")
+    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs) Handles Lighty.Scroll
+        Light.Translate(bmp.Height - Lighty.Value, "y")
         Draw(Light)
     End Sub
 
-    Private Sub TrackBar3_Scroll(sender As Object, e As EventArgs) Handles TrackBar3.Scroll
-        Light.Translate(TrackBar3.Value, "z")
+    Private Sub TrackBar3_Scroll(sender As Object, e As EventArgs) Handles Lightz.Scroll
+        Light.Translate(Lightz.Value, "z")
         Draw(Light)
     End Sub
 
@@ -112,17 +139,17 @@
         Draw(Light)
     End Sub
 
-    Private Sub TrackBar7_Scroll(sender As Object, e As EventArgs) Handles TrackBar7.Scroll
+    Private Sub TrackBar7_Scroll(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub TrackBar5_Scroll(sender As Object, e As EventArgs) Handles TrackBar5.Scroll
-        Sphere.c.Translate(TrackBar5.Value, "x")
+    Private Sub TrackBar5_Scroll(sender As Object, e As EventArgs) Handles Spherex.Scroll
+        Sphere.c.Translate(Spherex.Value, "x")
         Draw(Light)
     End Sub
 
-    Private Sub TrackBar6_Scroll(sender As Object, e As EventArgs) Handles TrackBar6.Scroll
-        Sphere.c.Translate(TrackBar6.Value, "y")
+    Private Sub TrackBar6_Scroll(sender As Object, e As EventArgs) Handles Spherey.Scroll
+        Sphere.c.Translate(Spherey.Value, "y")
         Draw(Light)
     End Sub
 End Class
@@ -146,8 +173,8 @@ Public Class Sphere
         d = ray.d
         oc = o - Me.c
 
-        b = 2 * dot(oc, d)
-        c = dot(oc, oc) - r * r
+        b = 2 * Dot(oc, d)
+        c = Dot(oc, oc) - r * r
         disc = b * b - 4 * c
 
         If disc < 0 Then
@@ -169,11 +196,11 @@ Public Class Sphere
         End If
     End Function
 
-    Public Function dot(v As Vec, b As Vec) As Double
+    Public Function Dot(v As Vec, b As Vec) As Double
         Return (v.x * b.x + v.y * b.y + v.z * b.z)
     End Function
 
-    Public Function getNormal(pi As Vec)
+    Public Function GetNormal(pi As Vec)
         Return (c - pi) / r
     End Function
 End Class
@@ -228,6 +255,12 @@ Public Class Vec
 
     Public Shared Operator *(v As Vec, w As Vec) As Vec
         Return New Vec(v.x * w.x, v.y * w.y, v.z * w.z)
+    End Operator
+
+    Public Shared Operator *(v As Vec, w(,) As Double) As Vec
+        Return New Vec(v.x * w(0, 0) + v.y * w(1, 0) + v.z * w(2, 0) + 0 * w(3, 0),
+                       v.x * w(0, 1) + v.y * w(1, 1) + v.z * w(2, 1) + 0 * w(3, 1),
+                       v.x * w(0, 2) + v.y * w(1, 2) + v.z * w(2, 2) + 0 * w(3, 2))
     End Operator
 
     Public Shared Operator *(v As Vec, f As Double) As Vec

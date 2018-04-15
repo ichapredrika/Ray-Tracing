@@ -24,23 +24,22 @@ Partial Class Form1
     Private Sub InitializeComponent()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.refreshBtn = New System.Windows.Forms.Button()
-        Me.TrackBar1 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar2 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar3 = New System.Windows.Forms.TrackBar()
+        Me.Lightx = New System.Windows.Forms.TrackBar()
+        Me.Lighty = New System.Windows.Forms.TrackBar()
+        Me.Lightz = New System.Windows.Forms.TrackBar()
         Me.TrackBar4 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar5 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar6 = New System.Windows.Forms.TrackBar()
-        Me.TrackBar7 = New System.Windows.Forms.TrackBar()
+        Me.Spherex = New System.Windows.Forms.TrackBar()
+        Me.Spherey = New System.Windows.Forms.TrackBar()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Lightx, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Lighty, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Lightz, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Spherex, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Spherey, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -63,29 +62,29 @@ Partial Class Form1
         Me.refreshBtn.Text = "Refresh"
         Me.refreshBtn.UseVisualStyleBackColor = True
         '
-        'TrackBar1
+        'Lightx
         '
-        Me.TrackBar1.Location = New System.Drawing.Point(679, 56)
-        Me.TrackBar1.Maximum = 300
-        Me.TrackBar1.Name = "TrackBar1"
-        Me.TrackBar1.Size = New System.Drawing.Size(278, 56)
-        Me.TrackBar1.TabIndex = 2
+        Me.Lightx.Location = New System.Drawing.Point(679, 56)
+        Me.Lightx.Maximum = 300
+        Me.Lightx.Name = "Lightx"
+        Me.Lightx.Size = New System.Drawing.Size(278, 56)
+        Me.Lightx.TabIndex = 2
         '
-        'TrackBar2
+        'Lighty
         '
-        Me.TrackBar2.Location = New System.Drawing.Point(679, 118)
-        Me.TrackBar2.Maximum = 300
-        Me.TrackBar2.Name = "TrackBar2"
-        Me.TrackBar2.Size = New System.Drawing.Size(278, 56)
-        Me.TrackBar2.TabIndex = 3
+        Me.Lighty.Location = New System.Drawing.Point(679, 118)
+        Me.Lighty.Maximum = 300
+        Me.Lighty.Name = "Lighty"
+        Me.Lighty.Size = New System.Drawing.Size(278, 56)
+        Me.Lighty.TabIndex = 3
         '
-        'TrackBar3
+        'Lightz
         '
-        Me.TrackBar3.Location = New System.Drawing.Point(679, 180)
-        Me.TrackBar3.Maximum = 300
-        Me.TrackBar3.Name = "TrackBar3"
-        Me.TrackBar3.Size = New System.Drawing.Size(278, 56)
-        Me.TrackBar3.TabIndex = 4
+        Me.Lightz.Location = New System.Drawing.Point(679, 180)
+        Me.Lightz.Maximum = 300
+        Me.Lightz.Name = "Lightz"
+        Me.Lightz.Size = New System.Drawing.Size(278, 56)
+        Me.Lightz.TabIndex = 4
         '
         'TrackBar4
         '
@@ -96,30 +95,22 @@ Partial Class Form1
         Me.TrackBar4.TabIndex = 5
         Me.TrackBar4.Value = 100
         '
-        'TrackBar5
+        'Spherex
         '
-        Me.TrackBar5.Location = New System.Drawing.Point(993, 56)
-        Me.TrackBar5.Maximum = 300
-        Me.TrackBar5.Name = "TrackBar5"
-        Me.TrackBar5.Size = New System.Drawing.Size(279, 56)
-        Me.TrackBar5.TabIndex = 6
+        Me.Spherex.Location = New System.Drawing.Point(993, 56)
+        Me.Spherex.Maximum = 300
+        Me.Spherex.Name = "Spherex"
+        Me.Spherex.Size = New System.Drawing.Size(279, 56)
+        Me.Spherex.TabIndex = 6
         '
-        'TrackBar6
+        'Spherey
         '
-        Me.TrackBar6.Location = New System.Drawing.Point(993, 118)
-        Me.TrackBar6.Maximum = 100
-        Me.TrackBar6.Minimum = -100
-        Me.TrackBar6.Name = "TrackBar6"
-        Me.TrackBar6.Size = New System.Drawing.Size(279, 56)
-        Me.TrackBar6.TabIndex = 7
-        '
-        'TrackBar7
-        '
-        Me.TrackBar7.Location = New System.Drawing.Point(993, 180)
-        Me.TrackBar7.Maximum = 100
-        Me.TrackBar7.Name = "TrackBar7"
-        Me.TrackBar7.Size = New System.Drawing.Size(279, 56)
-        Me.TrackBar7.TabIndex = 8
+        Me.Spherey.Location = New System.Drawing.Point(993, 118)
+        Me.Spherey.Maximum = 100
+        Me.Spherey.Minimum = -100
+        Me.Spherey.Name = "Spherey"
+        Me.Spherey.Size = New System.Drawing.Size(279, 56)
+        Me.Spherey.TabIndex = 7
         '
         'Label1
         '
@@ -139,33 +130,41 @@ Partial Class Form1
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Sphere Control"
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(834, 260)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(51, 17)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "Label3"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1297, 533)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TrackBar7)
-        Me.Controls.Add(Me.TrackBar6)
-        Me.Controls.Add(Me.TrackBar5)
+        Me.Controls.Add(Me.Spherey)
+        Me.Controls.Add(Me.Spherex)
         Me.Controls.Add(Me.TrackBar4)
-        Me.Controls.Add(Me.TrackBar3)
-        Me.Controls.Add(Me.TrackBar2)
-        Me.Controls.Add(Me.TrackBar1)
+        Me.Controls.Add(Me.Lightz)
+        Me.Controls.Add(Me.Lighty)
+        Me.Controls.Add(Me.Lightx)
         Me.Controls.Add(Me.refreshBtn)
         Me.Controls.Add(Me.PictureBox1)
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Form1"
         Me.Text = "Ray Tracing"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Lightx, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Lighty, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Lightz, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TrackBar4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TrackBar7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Spherex, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Spherey, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -173,13 +172,13 @@ Partial Class Form1
 
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents refreshBtn As Button
-    Friend WithEvents TrackBar1 As TrackBar
-    Friend WithEvents TrackBar2 As TrackBar
-    Friend WithEvents TrackBar3 As TrackBar
+    Friend WithEvents Lightx As TrackBar
+    Friend WithEvents Lighty As TrackBar
+    Friend WithEvents Lightz As TrackBar
     Friend WithEvents TrackBar4 As TrackBar
-    Friend WithEvents TrackBar5 As TrackBar
-    Friend WithEvents TrackBar6 As TrackBar
-    Friend WithEvents TrackBar7 As TrackBar
+    Friend WithEvents Spherex As TrackBar
+    Friend WithEvents Spherey As TrackBar
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
 End Class
