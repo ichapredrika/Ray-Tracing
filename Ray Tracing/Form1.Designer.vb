@@ -35,7 +35,7 @@ Partial Class Form1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.kaTB = New System.Windows.Forms.TrackBar()
         Me.kdTB = New System.Windows.Forms.TrackBar()
-        Me.kcTB = New System.Windows.Forms.TrackBar()
+        Me.ksTB = New System.Windows.Forms.TrackBar()
         Me.sreTB = New System.Windows.Forms.TrackBar()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Lightx, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,7 +46,7 @@ Partial Class Form1
         CType(Me.Spherey, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.kaTB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.kdTB, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.kcTB, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ksTB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sreTB, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -71,7 +71,7 @@ Partial Class Form1
         'Lightx
         '
         Me.Lightx.Location = New System.Drawing.Point(509, 46)
-        Me.Lightx.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Lightx.Margin = New System.Windows.Forms.Padding(2)
         Me.Lightx.Maximum = 300
         Me.Lightx.Name = "Lightx"
         Me.Lightx.Size = New System.Drawing.Size(208, 45)
@@ -80,7 +80,7 @@ Partial Class Form1
         'Lighty
         '
         Me.Lighty.Location = New System.Drawing.Point(509, 96)
-        Me.Lighty.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Lighty.Margin = New System.Windows.Forms.Padding(2)
         Me.Lighty.Maximum = 300
         Me.Lighty.Name = "Lighty"
         Me.Lighty.Size = New System.Drawing.Size(208, 45)
@@ -89,7 +89,7 @@ Partial Class Form1
         'Lightz
         '
         Me.Lightz.Location = New System.Drawing.Point(509, 146)
-        Me.Lightz.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Lightz.Margin = New System.Windows.Forms.Padding(2)
         Me.Lightz.Maximum = 300
         Me.Lightz.Name = "Lightz"
         Me.Lightz.Size = New System.Drawing.Size(208, 45)
@@ -98,7 +98,7 @@ Partial Class Form1
         'TrackBar4
         '
         Me.TrackBar4.Location = New System.Drawing.Point(519, 208)
-        Me.TrackBar4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.TrackBar4.Margin = New System.Windows.Forms.Padding(2)
         Me.TrackBar4.Maximum = 100
         Me.TrackBar4.Name = "TrackBar4"
         Me.TrackBar4.Size = New System.Drawing.Size(208, 45)
@@ -108,7 +108,7 @@ Partial Class Form1
         'Spherex
         '
         Me.Spherex.Location = New System.Drawing.Point(745, 46)
-        Me.Spherex.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Spherex.Margin = New System.Windows.Forms.Padding(2)
         Me.Spherex.Maximum = 300
         Me.Spherex.Name = "Spherex"
         Me.Spherex.Size = New System.Drawing.Size(209, 45)
@@ -117,7 +117,7 @@ Partial Class Form1
         'Spherey
         '
         Me.Spherey.Location = New System.Drawing.Point(745, 96)
-        Me.Spherey.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Spherey.Margin = New System.Windows.Forms.Padding(2)
         Me.Spherey.Maximum = 100
         Me.Spherey.Minimum = -100
         Me.Spherey.Name = "Spherey"
@@ -168,12 +168,12 @@ Partial Class Form1
         Me.kdTB.Size = New System.Drawing.Size(104, 45)
         Me.kdTB.TabIndex = 13
         '
-        'kcTB
+        'ksTB
         '
-        Me.kcTB.Location = New System.Drawing.Point(519, 386)
-        Me.kcTB.Name = "kcTB"
-        Me.kcTB.Size = New System.Drawing.Size(104, 45)
-        Me.kcTB.TabIndex = 14
+        Me.ksTB.Location = New System.Drawing.Point(519, 386)
+        Me.ksTB.Name = "ksTB"
+        Me.ksTB.Size = New System.Drawing.Size(104, 45)
+        Me.ksTB.TabIndex = 14
         '
         'sreTB
         '
@@ -188,7 +188,7 @@ Partial Class Form1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(973, 433)
         Me.Controls.Add(Me.sreTB)
-        Me.Controls.Add(Me.kcTB)
+        Me.Controls.Add(Me.ksTB)
         Me.Controls.Add(Me.kdTB)
         Me.Controls.Add(Me.kaTB)
         Me.Controls.Add(Me.Label3)
@@ -213,7 +213,7 @@ Partial Class Form1
         CType(Me.Spherey, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.kaTB, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.kdTB, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.kcTB, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ksTB, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sreTB, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -233,6 +233,6 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents kaTB As TrackBar
     Friend WithEvents kdTB As TrackBar
-    Friend WithEvents kcTB As TrackBar
+    Friend WithEvents ksTB As TrackBar
     Friend WithEvents sreTB As TrackBar
 End Class
