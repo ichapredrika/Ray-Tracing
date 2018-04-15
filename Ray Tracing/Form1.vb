@@ -71,6 +71,38 @@
 
                     itot = (Sphere.Color + New Vec(255, 255, 255) * dt) * tst
 
+                    Dim ka, la, kd, ll, ks, Itot As Single
+                    ka = kabox.Text
+                    kd = kdbox.Text
+                    ks = ksbox.Text
+
+                    la = 0.5
+                    ll = 0.5
+
+                    ex = exBox.Text
+                    itot = (ka * la) + (kd * ll * LN) + (ks * ll * (VR ^ ex))
+
+                    red = 255 * itot
+                    green = 255 * itot
+                    blue = 255 * itot
+
+                    If red < 0 Then
+                        red = 0
+                    ElseIf red > 255 Then
+                        red = 255
+                    End If
+                    If green < 0 Then
+                        green = 0
+                    ElseIf green > 255 Then
+                        green = 255
+                    End If
+                    If blue < 0 Then
+                        blue = 0
+                    ElseIf blue > 255 Then
+                        blue = 255
+                    End If
+                    Image.SetPixel(i, O, Color.FromArgb(red, green, blue))
+
                     bmp.SetPixel(i, j, CreateColorVector(itot))
 
                 End If
