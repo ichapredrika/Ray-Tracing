@@ -11,8 +11,8 @@
     Public ka As Double = 0.5
     Public kd As Double = 0.5
     Public ks As Double = 0.5
-    Public ll As Double = 0.5
-    Public la As Double = 0.5
+    Public Il As Double = 0.5
+    Public Ia As Double = 0.5
     Public ex As Double = 0
 
 
@@ -60,7 +60,7 @@
             For i = 0 To bmp.Width - 1
 
                 'Send a ray through each pixel
-                Dim Ray As Ray = New Ray(New Vec(i, j, 0), New Vec(0, 0, 1))
+                Dim Ray As Ray = New Ray(New Vec(i, j, 0), New Vec(0, 0, 100))
 
                 'check intersections
                 If Sphere.Intersect(Ray, t) Then
@@ -81,21 +81,18 @@
                     dt = Sphere.Dot(L.Normalize, N.Normalize)
 
                     Dim red, green, blue As Double
-                    Dim itotA As Double
+                    Dim itot As Double
                     'Dim itot As Vec
 
-
-
-
-                    itotA = (ka * la) + (kd * ll * (Dot(L.Normalize, N.Normalize))) + (ks * ll) * ((Dot(V.Normalize, R.Normalize)) ^ ex)
+                    itot = (ka * Ia) + (Il * kd * (Dot(L.Normalize, N.Normalize))) + (Il * ks) * ((Dot(V.Normalize, R.Normalize)) ^ ex)
 
                     'itot = (Sphere.Color + New Vec(255, 255, 255) * itotA)
 
                     'bmp.SetPixel(i, j, CreateColorVector(itot))
 
-                    red = itotA
-                    green = itotA
-                    blue = 255 * itotA
+                    red = itot
+                    green = itot
+                    blue = 255 * itot
 
                     If red < 0 Then
                         red = 0
@@ -126,34 +123,6 @@
     End Function
     Public Function Dot(v As Vec, b As Vec) As Double
         Return (v.x * b.x + v.y * b.y + v.z * b.z)
-    End Function
-
-    Function CreateColorVector(clr As Vec) As Color
-        Dim colRed, colGreen, colBlue As Double
-
-        colRed = clr.x
-        colGreen = clr.y
-        colBlue = clr.z
-
-        If colRed > 255 Then
-            colRed = 255
-        ElseIf colRed < 0 Then
-            colRed = 0
-        End If
-
-        If colGreen > 255 Then
-            colGreen = 255
-        ElseIf colGreen < 0 Then
-            colGreen = 0
-        End If
-
-        If colBlue > 255 Then
-            colBlue = 255
-        ElseIf colBlue < 0 Then
-            colBlue = 0
-        End If
-
-        Return Color.FromArgb(CInt(colRed), CInt(colGreen), CInt(colBlue))
     End Function
 
     Function MatrixMultiplication(Matrix1(,) As Double, Matrix2(,) As Double) As Double(,)
@@ -218,6 +187,16 @@
 
     Private Sub sreTB_Scroll(sender As Object, e As EventArgs) Handles sreTB.Scroll
         ex = sreTB.Value
+        Draw(Light)
+    End Sub
+
+    Private Sub IiTB_Scroll(sender As Object, e As EventArgs) Handles IlTB.Scroll
+        Il = IlTB.Value
+        Draw(Light)
+    End Sub
+
+    Private Sub IaTB_Scroll(sender As Object, e As EventArgs) Handles IaTB.Scroll
+        Ia = IaTB.Value
         Draw(Light)
     End Sub
 End Class
