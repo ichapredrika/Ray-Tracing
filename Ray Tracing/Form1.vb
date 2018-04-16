@@ -5,7 +5,7 @@
 
     Public Light As Vec
     Public Sphere As Sphere
-    Public tst As Double = 1.0
+    'Public tst As Double = 1.0
 
 
     Public ka As Double = 0.5
@@ -13,7 +13,7 @@
     Public ks As Double = 0.5
     Public Il As Double = 0.5
     Public Ia As Double = 0.5
-    Public ex As Double = 0
+    Public ex As Double = 1
 
 
 
@@ -21,8 +21,8 @@
         bmp = New Bitmap(PictureBox1.Width, PictureBox1.Height)
         gpx = Graphics.FromImage(bmp)
 
-        Light = New Vec(bmp.Width / 2, bmp.Height, 0)
-        Sphere = New Sphere(New Vec(bmp.Width / 2, bmp.Height / 2, 0), 50, Color.Red)
+        Light = New Vec(0, 500, 0)
+        Sphere = New Sphere(New Vec(bmp.Width / 2, bmp.Height / 2, 0), 100, Color.Red)
 
         Lightx.SetRange(0, bmp.Width)
         Lightx.Value = bmp.Width / 2
@@ -60,7 +60,7 @@
             For i = 0 To bmp.Width - 1
 
                 'Send a ray through each pixel
-                Dim Ray As Ray = New Ray(New Vec(i, j, 0), New Vec(0, 0, 100))
+                Dim Ray As Ray = New Ray(New Vec(i, j, 0), New Vec(0, 0, 1))
 
                 'check intersections
                 If Sphere.Intersect(Ray, t) Then
@@ -152,7 +152,7 @@
     End Sub
 
     Private Sub TrackBar4_Scroll(sender As Object, e As EventArgs) Handles TrackBar4.Scroll
-        tst = TrackBar4.Value / 100
+        'tst = TrackBar4.Value / 100
         Draw(Light)
     End Sub
 
@@ -191,12 +191,12 @@
     End Sub
 
     Private Sub IiTB_Scroll(sender As Object, e As EventArgs) Handles IlTB.Scroll
-        Il = IlTB.Value
+        Il = IlTB.Value / 10
         Draw(Light)
     End Sub
 
     Private Sub IaTB_Scroll(sender As Object, e As EventArgs) Handles IaTB.Scroll
-        Ia = IaTB.Value
+        Ia = IaTB.Value / 10
         Draw(Light)
     End Sub
 End Class
