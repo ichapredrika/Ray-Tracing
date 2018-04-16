@@ -7,6 +7,16 @@
     Public Sphere As Sphere
     Public tst As Double = 1.0
 
+
+    Public ka As Double = 0.5
+    Public kd As Double = 0.5
+    Public ks As Double = 0.5
+    Public ll As Double = 0.5
+    Public la As Double = 0.5
+    Public ex As Double = 0
+
+
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         bmp = New Bitmap(PictureBox1.Width, PictureBox1.Height)
         gpx = Graphics.FromImage(bmp)
@@ -56,7 +66,7 @@
                 If Sphere.Intersect(Ray, t) Then
                     'bmp.SetPixel(i, j, Color.White)
 
-                    Dim pi, L, N As Vec
+                    Dim pi, L, N, V, R As Vec
                     Dim dt As Double
 
                     'Point of intersection
@@ -65,52 +75,58 @@
                     'Color the Pixel
                     L = Light - pi
                     N = Sphere.GetNormal(pi)
+                    V = New Vec(0, 0, 100)
+                    V = V - pi
+                    R = MultiplyPointMatrix(pi, 2) - L.Normalize
                     dt = Sphere.Dot(L.Normalize, N.Normalize)
 
-                    Dim itot As Vec
+                    Dim red, green, blue As Double
+                    Dim itotA As Double
+                    'Dim itot As Vec
 
-                    itot = (Sphere.Color + New Vec(255, 255, 255) * dt) * tst
 
-                    'Dim ka, la, kd, ll, ks, Itot As Single
-                    'ka = kabox.Text
-                    'kd = kdbox.Text
-                    'ks = ksbox.Text
 
-                    'la = 0.5
-                    'll = 0.5
 
-                    'ex = exBox.Text
-                    'itot = (ka * la) + (kd * ll * LN) + (ks * ll * (VR ^ ex))
+                    itotA = (ka * la) + (kd * ll * (Dot(L.Normalize, N.Normalize))) + (ks * ll) * ((Dot(V.Normalize, R.Normalize)) ^ ex)
 
-                    'red = 255 * itot
-                    'green = 255 * itot
-                    'blue = 255 * itot
+                    'itot = (Sphere.Color + New Vec(255, 255, 255) * itotA)
 
-                    'If red < 0 Then
-                    '    red = 0
-                    'ElseIf red > 255 Then
-                    '    red = 255
-                    'End If
-                    'If green < 0 Then
-                    '    green = 0
-                    'ElseIf green > 255 Then
-                    '    green = 255
-                    'End If
-                    'If blue < 0 Then
-                    '    blue = 0
-                    'ElseIf blue > 255 Then
-                    '    blue = 255
-                    'End If
-                    'Image.SetPixel(i, O, Color.FromArgb(red, green, blue))
+                    'bmp.SetPixel(i, j, CreateColorVector(itot))
 
-                    bmp.SetPixel(i, j, CreateColorVector(itot))
+                    red = itotA
+                    green = itotA
+                    blue = 255 * itotA
 
+                    If red < 0 Then
+                        red = 0
+                    ElseIf red > 255 Then
+                        red = 255
+                    End If
+                    If green < 0 Then
+                        green = 0
+                    ElseIf green > 255 Then
+                        green = 255
+                    End If
+                    If blue < 0 Then
+                        blue = 0
+                    ElseIf blue > 255 Then
+                        blue = 255
+                    End If
+                    bmp.SetPixel(i, j, Color.FromArgb(red, green, blue))
                 End If
 
             Next
         Next
         PictureBox1.Image = bmp
     End Sub
+    Function MultiplyPointMatrix(Point As Vec, a As Double) As Vec
+        Return New Vec(Point.x * a,
+                       Point.y * a,
+                       Point.z * a)
+    End Function
+    Public Function Dot(v As Vec, b As Vec) As Double
+        Return (v.x * b.x + v.y * b.y + v.z * b.z)
+    End Function
 
     Function CreateColorVector(clr As Vec) As Color
         Dim colRed, colGreen, colBlue As Double
@@ -182,6 +198,26 @@
 
     Private Sub TrackBar6_Scroll(sender As Object, e As EventArgs) Handles Spherey.Scroll
         Sphere.c.Translate(Spherey.Value, "y")
+        Draw(Light)
+    End Sub
+
+    Private Sub kaTB_Scroll(sender As Object, e As EventArgs) Handles kaTB.Scroll
+        ka = kaTB.Value / 10
+        Draw(Light)
+    End Sub
+
+    Private Sub kdTB_Scroll(sender As Object, e As EventArgs) Handles kdTB.Scroll
+        kd = kdTB.Value / 10
+        Draw(Light)
+    End Sub
+
+    Private Sub ksTB_Scroll(sender As Object, e As EventArgs) Handles ksTB.Scroll
+        ks = ksTB.Value / 10
+        Draw(Light)
+    End Sub
+
+    Private Sub sreTB_Scroll(sender As Object, e As EventArgs) Handles sreTB.Scroll
+        ex = sreTB.Value
         Draw(Light)
     End Sub
 End Class
@@ -302,4 +338,5 @@ Public Class Vec
     Public Shared Operator /(v As Vec, f As Double) As Vec
         Return New Vec(v.x / f, v.y / f, v.z / f)
     End Operator
+
 End Class
