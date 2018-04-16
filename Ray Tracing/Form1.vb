@@ -9,11 +9,11 @@
 
 
     Public ka As Double = 0.5
-    Public kd As Double = 0.5
-    Public ks As Double = 0.5
+    Public kd As Double = 0.8
+    Public ks As Double = 0.2
     Public Il As Double = 0.5
     Public Ia As Double = 0.5
-    Public ex As Double = 1
+    Public ex As Double = 10
 
 
 
@@ -67,7 +67,7 @@
                     'bmp.SetPixel(i, j, Color.White)
 
                     Dim pi, L, N, V, R As Vec
-                    Dim dt As Double
+                    'Dim dt As Double
 
                     'Point of intersection
                     pi = Ray.o + Ray.d * t
@@ -77,8 +77,8 @@
                     N = Sphere.GetNormal(pi)
                     V = New Vec(0, 0, 100)
                     V = V - pi
-                    R = MultiplyPointMatrix(pi, 2) - L.Normalize
-                    dt = Sphere.Dot(L.Normalize, N.Normalize)
+                    R = MultiplyPointMatrix(pi, 2) + L.Normalize
+                    'dt = Sphere.Dot(L.Normalize, N.Normalize)
 
                     Dim red, green, blue As Double
                     Dim itot As Double
