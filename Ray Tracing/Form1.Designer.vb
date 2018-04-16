@@ -37,6 +37,8 @@ Partial Class Form1
         Me.kdTB = New System.Windows.Forms.TrackBar()
         Me.ksTB = New System.Windows.Forms.TrackBar()
         Me.sreTB = New System.Windows.Forms.TrackBar()
+        Me.IlTB = New System.Windows.Forms.TrackBar()
+        Me.IaTB = New System.Windows.Forms.TrackBar()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Lightx, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Lighty, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -48,6 +50,8 @@ Partial Class Form1
         CType(Me.kdTB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ksTB, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sreTB, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IlTB, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IaTB, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PictureBox1
@@ -182,11 +186,27 @@ Partial Class Form1
         Me.sreTB.Size = New System.Drawing.Size(104, 45)
         Me.sreTB.TabIndex = 15
         '
+        'IlTB
+        '
+        Me.IlTB.Location = New System.Drawing.Point(679, 334)
+        Me.IlTB.Name = "IlTB"
+        Me.IlTB.Size = New System.Drawing.Size(104, 45)
+        Me.IlTB.TabIndex = 16
+        '
+        'IaTB
+        '
+        Me.IaTB.Location = New System.Drawing.Point(679, 386)
+        Me.IaTB.Name = "IaTB"
+        Me.IaTB.Size = New System.Drawing.Size(104, 45)
+        Me.IaTB.TabIndex = 17
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(973, 433)
+        Me.Controls.Add(Me.IaTB)
+        Me.Controls.Add(Me.IlTB)
         Me.Controls.Add(Me.sreTB)
         Me.Controls.Add(Me.ksTB)
         Me.Controls.Add(Me.kdTB)
@@ -215,6 +235,8 @@ Partial Class Form1
         CType(Me.kdTB, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ksTB, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sreTB, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IlTB, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IaTB, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -235,4 +257,6 @@ Partial Class Form1
     Friend WithEvents kdTB As TrackBar
     Friend WithEvents ksTB As TrackBar
     Friend WithEvents sreTB As TrackBar
+    Friend WithEvents IlTB As TrackBar
+    Friend WithEvents IaTB As TrackBar
 End Class
