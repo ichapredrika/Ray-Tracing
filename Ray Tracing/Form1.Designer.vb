@@ -32,11 +32,11 @@ Partial Class Form1
         Me.Spherey = New System.Windows.Forms.TrackBar()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.kaTB = New System.Windows.Forms.TrackBar()
         Me.kdTB = New System.Windows.Forms.TrackBar()
         Me.kcTB = New System.Windows.Forms.TrackBar()
         Me.sreTB = New System.Windows.Forms.TrackBar()
+        Me.Label3 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Lightx, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Lighty, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,140 +53,143 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.White
-        Me.PictureBox1.Location = New System.Drawing.Point(13, 13)
+        Me.PictureBox1.Location = New System.Drawing.Point(17, 16)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(483, 408)
+        Me.PictureBox1.Size = New System.Drawing.Size(644, 502)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
         'refreshBtn
         '
-        Me.refreshBtn.Location = New System.Drawing.Point(879, 400)
+        Me.refreshBtn.Location = New System.Drawing.Point(1172, 492)
+        Me.refreshBtn.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.refreshBtn.Name = "refreshBtn"
-        Me.refreshBtn.Size = New System.Drawing.Size(75, 23)
+        Me.refreshBtn.Size = New System.Drawing.Size(100, 28)
         Me.refreshBtn.TabIndex = 1
         Me.refreshBtn.Text = "Refresh"
         Me.refreshBtn.UseVisualStyleBackColor = True
         '
         'Lightx
         '
-        Me.Lightx.Location = New System.Drawing.Point(509, 46)
-        Me.Lightx.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Lightx.Location = New System.Drawing.Point(679, 57)
+        Me.Lightx.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Lightx.Maximum = 300
         Me.Lightx.Name = "Lightx"
-        Me.Lightx.Size = New System.Drawing.Size(208, 45)
+        Me.Lightx.Size = New System.Drawing.Size(277, 56)
         Me.Lightx.TabIndex = 2
         '
         'Lighty
         '
-        Me.Lighty.Location = New System.Drawing.Point(509, 96)
-        Me.Lighty.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Lighty.Location = New System.Drawing.Point(679, 118)
+        Me.Lighty.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Lighty.Maximum = 300
         Me.Lighty.Name = "Lighty"
-        Me.Lighty.Size = New System.Drawing.Size(208, 45)
+        Me.Lighty.Size = New System.Drawing.Size(277, 56)
         Me.Lighty.TabIndex = 3
         '
         'Lightz
         '
-        Me.Lightz.Location = New System.Drawing.Point(509, 146)
-        Me.Lightz.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Lightz.Location = New System.Drawing.Point(679, 180)
+        Me.Lightz.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Lightz.Maximum = 300
         Me.Lightz.Name = "Lightz"
-        Me.Lightz.Size = New System.Drawing.Size(208, 45)
+        Me.Lightz.Size = New System.Drawing.Size(277, 56)
         Me.Lightz.TabIndex = 4
         '
         'TrackBar4
         '
-        Me.TrackBar4.Location = New System.Drawing.Point(519, 208)
-        Me.TrackBar4.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
-        Me.TrackBar4.Maximum = 100
+        Me.TrackBar4.Location = New System.Drawing.Point(691, 256)
+        Me.TrackBar4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.TrackBar4.Maximum = 1000
         Me.TrackBar4.Name = "TrackBar4"
-        Me.TrackBar4.Size = New System.Drawing.Size(208, 45)
+        Me.TrackBar4.Size = New System.Drawing.Size(277, 56)
         Me.TrackBar4.TabIndex = 5
         Me.TrackBar4.Value = 100
         '
         'Spherex
         '
-        Me.Spherex.Location = New System.Drawing.Point(745, 46)
-        Me.Spherex.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Spherex.Location = New System.Drawing.Point(993, 57)
+        Me.Spherex.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Spherex.Maximum = 300
         Me.Spherex.Name = "Spherex"
-        Me.Spherex.Size = New System.Drawing.Size(209, 45)
+        Me.Spherex.Size = New System.Drawing.Size(279, 56)
         Me.Spherex.TabIndex = 6
         '
         'Spherey
         '
-        Me.Spherey.Location = New System.Drawing.Point(745, 96)
-        Me.Spherey.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Spherey.Location = New System.Drawing.Point(993, 118)
+        Me.Spherey.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Spherey.Maximum = 100
         Me.Spherey.Minimum = -100
         Me.Spherey.Name = "Spherey"
-        Me.Spherey.Size = New System.Drawing.Size(209, 45)
+        Me.Spherey.Size = New System.Drawing.Size(279, 56)
         Me.Spherey.TabIndex = 7
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(516, 13)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label1.Location = New System.Drawing.Point(688, 16)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(66, 13)
+        Me.Label1.Size = New System.Drawing.Size(88, 17)
         Me.Label1.TabIndex = 9
         Me.Label1.Text = "Light Control"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(742, 13)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.Label2.Location = New System.Drawing.Point(989, 16)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(77, 13)
+        Me.Label2.Size = New System.Drawing.Size(103, 17)
         Me.Label2.TabIndex = 10
         Me.Label2.Text = "Sphere Control"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(516, 193)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 11
-        Me.Label3.Text = "Label3"
-        '
         'kaTB
         '
-        Me.kaTB.Location = New System.Drawing.Point(519, 282)
+        Me.kaTB.Location = New System.Drawing.Point(692, 347)
+        Me.kaTB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.kaTB.Name = "kaTB"
-        Me.kaTB.Size = New System.Drawing.Size(104, 45)
+        Me.kaTB.Size = New System.Drawing.Size(139, 56)
         Me.kaTB.TabIndex = 12
         '
         'kdTB
         '
-        Me.kdTB.Location = New System.Drawing.Point(519, 334)
+        Me.kdTB.Location = New System.Drawing.Point(692, 411)
+        Me.kdTB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.kdTB.Name = "kdTB"
-        Me.kdTB.Size = New System.Drawing.Size(104, 45)
+        Me.kdTB.Size = New System.Drawing.Size(139, 56)
         Me.kdTB.TabIndex = 13
         '
         'kcTB
         '
-        Me.kcTB.Location = New System.Drawing.Point(519, 386)
+        Me.kcTB.Location = New System.Drawing.Point(692, 475)
+        Me.kcTB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.kcTB.Name = "kcTB"
-        Me.kcTB.Size = New System.Drawing.Size(104, 45)
+        Me.kcTB.Size = New System.Drawing.Size(139, 56)
         Me.kcTB.TabIndex = 14
         '
         'sreTB
         '
-        Me.sreTB.Location = New System.Drawing.Point(679, 282)
+        Me.sreTB.Location = New System.Drawing.Point(905, 347)
+        Me.sreTB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.sreTB.Name = "sreTB"
-        Me.sreTB.Size = New System.Drawing.Size(104, 45)
+        Me.sreTB.Size = New System.Drawing.Size(139, 56)
         Me.sreTB.TabIndex = 15
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(698, 228)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(32, 17)
+        Me.Label3.TabIndex = 11
+        Me.Label3.Text = "???"
         '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(973, 433)
+        Me.ClientSize = New System.Drawing.Size(1297, 533)
         Me.Controls.Add(Me.sreTB)
         Me.Controls.Add(Me.kcTB)
         Me.Controls.Add(Me.kdTB)
@@ -202,6 +205,7 @@ Partial Class Form1
         Me.Controls.Add(Me.Lightx)
         Me.Controls.Add(Me.refreshBtn)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Form1"
         Me.Text = "Ray Tracing"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -230,9 +234,9 @@ Partial Class Form1
     Friend WithEvents Spherey As TrackBar
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents kaTB As TrackBar
     Friend WithEvents kdTB As TrackBar
     Friend WithEvents kcTB As TrackBar
     Friend WithEvents sreTB As TrackBar
+    Friend WithEvents Label3 As Label
 End Class
