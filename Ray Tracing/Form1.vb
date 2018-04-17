@@ -9,11 +9,11 @@
 
 
     Public ka As Double = 0.5
-    Public kd As Double = 0.8
-    Public ks As Double = 0.2
+    Public kd As Double = 0.5
+    Public ks As Double = 0.5
     Public Il As Double = 0.5
     Public Ia As Double = 0.5
-    Public ex As Double = 10
+    Public ex As Double = 0
 
 
 
@@ -83,8 +83,8 @@
                     Dim red, green, blue As Double
                     Dim itot As Double
                     'Dim itot As Vec
-
-                    itot = (ka * Ia) + (Il * kd * (Dot(L.Normalize, N.Normalize))) + (Il * ks) * ((Dot(V.Normalize, R.Normalize)) ^ ex)
+                    'I = (ka * Ia) + Ii * (kd * (L . N) + ks * (R . V)n)
+                    itot = (ka * Ia) + (Il * (kd * (Dot(L.Normalize, N.Normalize)) + (ks * ((Dot(R.Normalize, V.Normalize)) ^ ex))))
 
                     'itot = (Sphere.Color + New Vec(255, 255, 255) * itotA)
 
@@ -136,25 +136,21 @@
         Return temp
     End Function
 
-    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs) Handles Lightx.Scroll
+    Private Sub TrackBar1_Scroll(sender As Object, e As EventArgs)
         Light.Translate(bmp.Width - Lightx.Value, "x")
         Draw(Light)
     End Sub
 
-    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs) Handles Lighty.Scroll
+    Private Sub TrackBar2_Scroll(sender As Object, e As EventArgs)
         Light.Translate(bmp.Height - Lighty.Value, "y")
         Draw(Light)
     End Sub
 
-    Private Sub TrackBar3_Scroll(sender As Object, e As EventArgs) Handles Lightz.Scroll
+    Private Sub TrackBar3_Scroll(sender As Object, e As EventArgs)
         Light.Translate(Lightz.Value, "z")
         Draw(Light)
     End Sub
 
-    Private Sub TrackBar4_Scroll(sender As Object, e As EventArgs) Handles TrackBar4.Scroll
-        'tst = TrackBar4.Value / 100
-        Draw(Light)
-    End Sub
 
     Private Sub TrackBar7_Scroll(sender As Object, e As EventArgs)
 
@@ -185,18 +181,19 @@
         Draw(Light)
     End Sub
 
-    Private Sub sreTB_Scroll(sender As Object, e As EventArgs) Handles sreTB.Scroll
-        ex = sreTB.Value
-        Draw(Light)
-    End Sub
 
-    Private Sub IiTB_Scroll(sender As Object, e As EventArgs) Handles IlTB.Scroll
+    Private Sub IiTB_Scroll(sender As Object, e As EventArgs)
         Il = IlTB.Value / 10
         Draw(Light)
     End Sub
 
-    Private Sub IaTB_Scroll(sender As Object, e As EventArgs) Handles IaTB.Scroll
+    Private Sub IaTB_Scroll(sender As Object, e As EventArgs)
         Ia = IaTB.Value / 10
+        Draw(Light)
+    End Sub
+
+    Private Sub sreTB_Scroll_1(sender As Object, e As EventArgs) Handles sreTB.Scroll
+        ex = sreTB.Value
         Draw(Light)
     End Sub
 End Class

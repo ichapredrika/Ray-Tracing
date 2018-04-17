@@ -1,0 +1,116 @@
+commit 99cfe576db5e13d4b286641f2c29b22fab8708ab
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Mon Apr 16 22:58:37 2018 +0700
+
+    -
+
+commit 866bc0c2e2e246509700bbd6cb681d3d55e879d7
+Merge: b81587d fc674a3
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Mon Apr 16 21:13:35 2018 +0700
+
+    Merge branch 'master' of https://github.com/ichapredrika/Ray-Tracing
+
+commit b81587dbd0e15075aa070565d031a1ff3b0502d4
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Mon Apr 16 21:09:09 2018 +0700
+
+    bug
+
+commit fc674a3b117f441e6e2dc0e43a3cb900ba85ed51
+Merge: 9eece17 e3ee4c8
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Mon Apr 16 19:39:01 2018 +0700
+
+    Merge branch 'master' of https://github.com/ichapredrika/Ray-Tracing
+
+commit 9eece17f6dcc44b5b0de92d579bcfbcde87c3640
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Mon Apr 16 19:38:46 2018 +0700
+
+    tst
+
+commit e3ee4c8960b1b8957000dd8825b80f78acb683e1
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Mon Apr 16 19:35:11 2018 +0700
+
+    add Ia and Il
+
+commit fe425c349f0e4ce21fce2a7440581588b6b68919
+Merge: 0f8056f 4c87330
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Mon Apr 16 19:34:11 2018 +0700
+
+    merge
+
+commit 0f8056f42814d0e21212105c43ef71ecb032be40
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Mon Apr 16 08:24:35 2018 +0700
+
+    -
+
+commit 4c87330a9f33b4d43d67219a34241d7796069531
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Sun Apr 15 23:08:52 2018 +0700
+
+    phong illumination
+
+commit 7cb5ab97cbd783dce2296161dbd2da6d1a7d2284
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Sun Apr 15 21:14:03 2018 +0700
+
+    -
+
+commit fb86b3bfc746a8575cf2f74705cd7c7402831fe7
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Sun Apr 15 20:51:32 2018 +0700
+
+    fix move
+
+commit fbbf5d77f26cbee4ebc98563311ce7ea3f9168b2
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Sun Apr 15 15:51:18 2018 +0700
+
+    perbaikan warna
+
+commit 0493187300c9659f425a6ca8096055200888a8ab
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Sat Apr 14 19:53:33 2018 +0700
+
+    baru
+
+commit d2c8a3e85d255fd68bab2be014d3a0c8df909324
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Sat Apr 14 19:49:14 2018 +0700
+
+    -------------
+
+commit 925206452a1664940554573e7401e6daf3bb7e9b
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Sat Apr 14 19:43:29 2018 +0700
+
+    bary
+
+commit 9126997a3a35a68e8b9d548e1575bd42493056aa
+Author: Teuku Atjeh <thilmanrevanda@gmail.com>
+Date:   Tue Apr 10 21:13:17 2018 +0700
+
+    test
+
+commit 78520bb7da42123b0539611e0216077ea98a7fb8
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Sun Apr 8 19:20:35 2018 +0700
+
+    draw sphere
+
+commit 98a34189ec0cc4719adf7422c9d113e4140f3e24
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Thu Apr 5 18:52:05 2018 +0700
+
+    create
+
+commit b5a09d7638148e45bb22b71f1c7b89d6ae5820ff
+Author: Predrika Br Ginting <ichapredrikagm@gmail.com>
+Date:   Thu Apr 5 18:47:05 2018 +0700
+
+    Add .gitignore and .gitattributes.
